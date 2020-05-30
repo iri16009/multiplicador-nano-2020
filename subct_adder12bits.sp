@@ -73,6 +73,43 @@
 *************************************************************************************************************
 *************************************************************************************************************
 
+*Sumadores
+*********************************************************************
+.SUBCKT Sum1 in1 in2 cin1 out1 cout1 vsource size = 1
+	*xor
+	X3 in1 in2 z1 vsource Xor2 size = 1
+	X4 z1 cin1 out1 vsource Xor2 size = 1
+
+	*nand
+	X5 z1 cin1 z3 vsource Nand2 size = 1
+	X6 in1 in2 z2 vsource Nand2 size = 1
+
+	*not
+	X7 z3 z5 vsource NotGate size = 1
+	X8 z2 z4 vsource NotGate size = 1
+	X10 z6 cout1 vsource NotGate size = 1
+
+	*nor
+	X9 z5 z4 z6 vsource Nor2 size = 1
+
+.ENDS
+
+*********************************************************************
+*SUMADOR DE 4 BITS:
+*ENTRADAS: 
+*	valor 1: a3 a2 a1 a0 
+*	valor 2: b3 b2 b1 b0 (Tanto a3 como b3 son los bits más significativos de cada valor.)
+*	carry 0: k0 (En la gran mayoría de aplicaciones se va a ingresar con valor 0.)
+*SALIDAS:
+*	resultado: s3 s2 s1 s0 (El bit más significativo es s3.)
+*	carry out: k4
+
+.SUBCKT Sum4 a3 a2 a1 a0 b3 b2 b1 b0 k0 k4 s3 s2 s1 s0 vsource size = 1
+	X11 a0 b0 k0 s0 k1 vsource Sum1 size = 1
+	X12 a1 b1 k1 s1 k2 vsource Sum1 size = 1
+	X13 a2 b2 k2 s2 k3 vsource Sum1 size = 1
+	X14 a3 b3 k3 s3 k4 vsource Sum1 size = 1
+.ENDS
 
 *********************************************************************
 *SUMADOR DE 12 BITS:
