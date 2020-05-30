@@ -73,8 +73,17 @@
 *************************************************************************************************************
 *************************************************************************************************************
 
+*********************************************************************
 *Sumadores
 *********************************************************************
+
+*********************************************************************
+*SUMADOR 1 BIT:
+*ENTRADAS: in1, in2
+*ENTRADA CARRY: cin1 (notar que para el bit menos significativo de un sumador de n bits ese cin1 debe ser 0,
+*			en los demás bits este sirve de entrada para el siguiente bit, como un cinX.)
+*SALIDAS: out1
+*SALIDA CARRY: cout1 (este se conecta al cin del siguiente sumador de 1 bit para formar un sumador de n bits.) 
 .SUBCKT Sum1 in1 in2 cin1 out1 cout1 vsource size = 1
 	*xor
 	X3 in1 in2 z1 vsource Xor2 size = 1
