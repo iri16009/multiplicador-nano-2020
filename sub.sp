@@ -113,30 +113,29 @@
 
 	X25 Q12 D13 SCTRL Y13 vsource MUX size=1
 	X26 Y13 CLK Q13 vsource DFF size=1
-	X27 Q13 D14 SCTRL Y14 vsource MUX size=1
+	X27 Q13 D14 0 Y14 vsource MUX size=1
 	X28 Y14 CLK Q14 vsource DFF size=1
-	X29 Q14 D15 SCTRL Y15 vsource MUX size=1
+	X29 Q14 D15 0 Y15 vsource MUX size=1
 	X30 Y15 CLK Q15 vsource DFF size=1
-	X31 Q15 D16 SCTRL Y16 vsource MUX size=1
+	X31 Q15 D16 0 Y16 vsource MUX size=1
 	X32 Y16 CLK Q16 vsource DFF size=1
 
-	X33 Q16 D17 SCTRL Y17 vsource MUX size=1
+	X33 Q16 D17 0 Y17 vsource MUX size=1
 	X34 Y17 CLK Q17 vsource DFF size=1
-	X35 Q17 D18 SCTRL Y18 vsource MUX size=1
+	X35 Q17 D18 0 Y18 vsource MUX size=1
 	X36 Y18 CLK Q18 vsource DFF size=1
-	X37 Q18 D19 SCTRL Y19 vsource MUX size=1
+	X37 Q18 D19 0 Y19 vsource MUX size=1
 	X38 Y19 CLK Q19 vsource DFF size=1
-	X39 Q19 D20 SCTRL Y20 vsource MUX size=1
+	X39 Q19 D20 0 Y20 vsource MUX size=1
 	X40 Y20 CLK Q20 vsource DFF size=1
 
-	X41 Q20 D21 SCTRL Y21 vsource MUX size=1
+	X41 Q20 D21 0 Y21 vsource MUX size=1
 	X42 Y21 CLK Q21 vsource DFF size=1
-	X43 Q21 D22 SCTRL Y22 vsource MUX size=1
+	X43 Q21 D22 0 Y22 vsource MUX size=1
 	X44 Y22 CLK Q22 vsource DFF size=1
-	X45 Q22 D23 SCTRL Y23 vsource MUX size=1
+	X45 Q22 D23 0 Y23 vsource MUX size=1
 	X46 Y23 CLK Q23 vsource DFF size=1
-	X47 Q23 D24 SCTRL Y24 vsource MUX size=1
+	X47 Q23 D24 0 Y24 vsource MUX size=1
 	X48 Y24 CLK Q24 vsource DFF size=1
-
 
 .ENDS
