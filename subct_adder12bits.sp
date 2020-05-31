@@ -1,23 +1,23 @@
 
-*LIBRERÍA DE COMPUERTAS LÓGICAS. 
+*LIBRERÍA DE COMPUERTAS LÓGICAS.
 
 
-*PARA EL SUMADOR SE NECESITAN COMPUERTAS XOR, AND Y OR. DADO QUE SE TRABAJÓ CON TECONOLOGÍA CMOS SE HICIERON 
-*LAS COMPUERTAS XOR, NAND Y NOR Y LUEGO SE LES COLOCÓ UNA NOT EN LA SALIDA PARA OBTENER EL RESULTADO DESEADO. 
+*PARA EL SUMADOR SE NECESITAN COMPUERTAS XOR, AND Y OR. DADO QUE SE TRABAJÓ CON TECONOLOGÍA CMOS SE HICIERON
+*LAS COMPUERTAS XOR, NAND Y NOR Y LUEGO SE LES COLOCÓ UNA NOT EN LA SALIDA PARA OBTENER EL RESULTADO DESEADO.
 
 *************************************************************************************************************
 *************************************************************************************************************
 *************************************************************************************************************
 *************************************************************************************************************
 *********************************************************************
-*COMPUERTA NOT: 
+*COMPUERTA NOT:
 *ENTRADA: in1
 *SALIDA:  out1
 
-.SUBCKT NotGate in1 out1 vsource size = 1
-	M1 out1 in1 vsource vsource pmos W='size*UNIT_W' L=UNIT_L
-	M2 out1 in1 0 0 nmos W='size*UNIT_W' L=UNIT_L
-.ENDS
+*.SUBCKT NotGate in1 out1 vsource size = 1
+*	M1 out1 in1 vsource vsource PMOS W='size*UNIT_W' L=UNIT_L
+*	M2 out1 in1 0 0 NMOS W='size*UNIT_W' L=UNIT_L
+*.ENDS
 
 *********************************************************************
 *COMPUERTA NAND2:
@@ -25,11 +25,11 @@
 *SALIDA:  out 1
 
 .SUBCKT Nand2 in1 in2 out1 vsource size = 1
-	M1 out1 in1 vsource vsource pmos W='size*UNIT_W' L=UNIT_L
-	M2 out1 in2 vsource vsource pmos W='size*UNIT_W' L=UNIT_L
+	M1 out1 in1 vsource vsource PMOS W='size*UNIT_W' L=UNIT_L
+	M2 out1 in2 vsource vsource PMOS W='size*UNIT_W' L=UNIT_L
 
-	M3 out1 in1 J 0 nmos W='size*UNIT_W' L=UNIT_L
-	M4 J in2 0 0 nmos W='size*UNIT_W' L=UNIT_L
+	M3 out1 in1 J 0 NMOS W='size*UNIT_W' L=UNIT_L
+	M4 J in2 0 0 NMOS W='size*UNIT_W' L=UNIT_L
 .ENDS
 
 *********************************************************************
@@ -38,11 +38,11 @@
 *SALIDA:  out1
 
 .SUBCKT Nor2 in1 in2 out1 vsource size = 1
-	M1 out1 in2 p1 vsource pmos W='size*UNIT_W' L=UNIT_L
-	M2 p1 in1 vsource vsource pmos W='size*UNIT_W' L=UNIT_L
+	M1 out1 in2 p1 vsource PMOS W='size*UNIT_W' L=UNIT_L
+	M2 p1 in1 vsource vsource PMOS W='size*UNIT_W' L=UNIT_L
 
-	M3 out1 in1 0 0 nmos W='size*UNIT_W' L=UNIT_L
-	M4 out1 in2 0 0 nmos W='size*UNIT_W' L=UNIT_L
+	M3 out1 in1 0 0 NMOS W='size*UNIT_W' L=UNIT_L
+	M4 out1 in2 0 0 NMOS W='size*UNIT_W' L=UNIT_L
 .ENDS
 
 *********************************************************************
@@ -50,22 +50,22 @@
 *ENTRADA: in1, in2
 *SALIDA:  out1
 *NOTAR QUE LA XOR HECHA CON CMOS NECESITA TANTO LAS ENTREDAS A Y B COMO SUS COMPLEMENTOS. ESTO SE HIZO
-*INTERNAMENTE CON UNAS NOT, LO CUAL AGREGA 4 TRANSISTORES (2NMOS Y 2PMOS) AL ESQUEMÁTICO VISTO EN LA 
+*INTERNAMENTE CON UNAS NOT, LO CUAL AGREGA 4 TRANSISTORES (2NMOS Y 2PMOS) AL ESQUEMÁTICO VISTO EN LA
 *CLASE.
 
 .SUBCKT Xor2 in1 in2 out1 vsource size = 1
 	X1 in1 in1n vsource NotGate size = 1
 	X2 in2 in2n vsource NotGate size = 1
 
-	M1 p1 in1 vsource vsource pmos W='size*UNIT_W' L=UNIT_L
-	M2 p2 in1n vsource vsource pmos W='size*UNIT_W' L=UNIT_L
-	M3 p1 in2n out1 vsource pmos W='size*UNIT_W' L=UNIT_L
-	M4 p2 in2 out1 vsource pmos W='size*UNIT_W' L=UNIT_L
+	M1 p1 in1 vsource vsource PMOS W='size*UNIT_W' L=UNIT_L
+	M2 p2 in1n vsource vsource PMOS W='size*UNIT_W' L=UNIT_L
+	M3 p1 in2n out1 vsource PMOS W='size*UNIT_W' L=UNIT_L
+	M4 p2 in2 out1 vsource PMOS W='size*UNIT_W' L=UNIT_L
 
-	M5 n1 in1n out1 0 nmos W='size*UNIT_W' L=UNIT_L
-	M6 n1 in2 out1 0 nmos W='size*UNIT_W' L=UNIT_L
-	M7 n1 in1 0 0 nmos W='size*UNIT_W' L=UNIT_L
-	M8 n1 in2n 0 0 nmos W='size*UNIT_W' L=UNIT_L
+	M5 n1 in1n out1 0 NMOS W='size*UNIT_W' L=UNIT_L
+	M6 n1 in2 out1 0 NMOS W='size*UNIT_W' L=UNIT_L
+	M7 n1 in1 0 0 NMOS W='size*UNIT_W' L=UNIT_L
+	M8 n1 in2n 0 0 NMOS W='size*UNIT_W' L=UNIT_L
 
 .ENDS
 *************************************************************************************************************
@@ -83,7 +83,7 @@
 *ENTRADA CARRY: cin1 (notar que para el bit menos significativo de un sumador de n bits ese cin1 debe ser 0,
 *			en los demás bits este sirve de entrada para el siguiente bit, como un cinX.)
 *SALIDAS: out1
-*SALIDA CARRY: cout1 (este se conecta al cin del siguiente sumador de 1 bit para formar un sumador de n bits.) 
+*SALIDA CARRY: cout1 (este se conecta al cin del siguiente sumador de 1 bit para formar un sumador de n bits.)
 .SUBCKT Sum1 in1 in2 cin1 out1 cout1 vsource size = 1
 	*xor
 	X3 in1 in2 z1 vsource Xor2 size = 1
@@ -105,8 +105,8 @@
 
 *********************************************************************
 *SUMADOR DE 4 BITS:
-*ENTRADAS: 
-*	valor 1: a3 a2 a1 a0 
+*ENTRADAS:
+*	valor 1: a3 a2 a1 a0
 *	valor 2: b3 b2 b1 b0 (Tanto a3 como b3 son los bits más significativos de cada valor.)
 *	carry 0: k0 (En la gran mayoría de aplicaciones se va a ingresar con valor 0.)
 *SALIDAS:
