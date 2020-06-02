@@ -1,4 +1,7 @@
 Proyecto Final
+Actualización al 1 de junio de 2020: Resultados probados en el main.sp
+algunos pasan con 24 pulsos, otros con 25, revisar. 
+
 =====
 La sección fue dividida en los siguientes subgrupos:
 1. D-FF
@@ -25,4 +28,3 @@ La sección fue dividida en los siguientes subgrupos:
 	* Sophia Cardona
 	* Carlos González
 	* Geovanni Flores
-
