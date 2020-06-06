@@ -1,15 +1,9 @@
+* LIBRERÍA DE COMPUERTAS LÓGICAS.
+* PARA EL SUMADOR SE NECESITAN COMPUERTAS XOR, AND Y OR. DADO QUE SE TRABAJÓ CON
+* TECONOLOGÍA CMOS SE HICIERON LAS COMPUERTAS XOR, NAND Y NOR Y LUEGO SE LES
+* COLOCÓ UNA NOT EN LA SALIDA PARA OBTENER EL RESULTADO DESEADO.
 
-*LIBRERÍA DE COMPUERTAS LÓGICAS.
-
-
-*PARA EL SUMADOR SE NECESITAN COMPUERTAS XOR, AND Y OR. DADO QUE SE TRABAJÓ CON TECONOLOGÍA CMOS SE HICIERON
-*LAS COMPUERTAS XOR, NAND Y NOR Y LUEGO SE LES COLOCÓ UNA NOT EN LA SALIDA PARA OBTENER EL RESULTADO DESEADO.
-
-*************************************************************************************************************
-*************************************************************************************************************
-*************************************************************************************************************
-*************************************************************************************************************
-*********************************************************************
+*******************************************************************************
 *COMPUERTA NOT:
 *ENTRADA: in1
 *SALIDA:  out1
@@ -54,8 +48,8 @@
 *CLASE.
 
 .SUBCKT Xor2 in1 in2 out1 vsource size = 1
-	X1 in1 in1n vsource NotGate size = 1
-	X2 in2 in2n vsource NotGate size = 1
+	Xe1 in1 in1n vsource NotGate size = 1
+	Xe2 in2 in2n vsource NotGate size = 1
 
 	M1 p1 in1 vsource vsource PMOS W='size*UNIT_W' L=UNIT_L
 	M2 p2 in1n vsource vsource PMOS W='size*UNIT_W' L=UNIT_L
@@ -68,10 +62,8 @@
 	M8 n1 in2n 0 0 NMOS W='size*UNIT_W' L=UNIT_L
 
 .ENDS
-*************************************************************************************************************
-*************************************************************************************************************
-*************************************************************************************************************
-*************************************************************************************************************
+*********************************************************************
+
 
 *********************************************************************
 *Sumadores
@@ -86,20 +78,20 @@
 *SALIDA CARRY: cout1 (este se conecta al cin del siguiente sumador de 1 bit para formar un sumador de n bits.)
 .SUBCKT Sum1 in1 in2 cin1 out1 cout1 vsource size = 1
 	*xor
-	X3 in1 in2 z1 vsource Xor2 size = 1
-	X4 z1 cin1 out1 vsource Xor2 size = 1
+	Xf3 in1 in2 z1 vsource Xor2 size = 1
+	Xf4 z1 cin1 out1 vsource Xor2 size = 1
 
 	*nand
-	X5 z1 cin1 z3 vsource Nand2 size = 1
-	X6 in1 in2 z2 vsource Nand2 size = 1
+	Xf5 z1 cin1 z3 vsource Nand2 size = 1
+	Xf6 in1 in2 z2 vsource Nand2 size = 1
 
 	*not
-	X7 z3 z5 vsource NotGate size = 1
-	X8 z2 z4 vsource NotGate size = 1
-	X10 z6 cout1 vsource NotGate size = 1
+	Xf7 z3 z5 vsource NotGate size = 1
+	Xf8 z2 z4 vsource NotGate size = 1
+	Xf10 z6 cout1 vsource NotGate size = 1
 
 	*nor
-	X9 z5 z4 z6 vsource Nor2 size = 1
+	Xf9 z5 z4 z6 vsource Nor2 size = 1
 
 .ENDS
 
@@ -114,10 +106,10 @@
 *	carry out: k4
 
 .SUBCKT Sum4 a3 a2 a1 a0 b3 b2 b1 b0 k0 k4 s3 s2 s1 s0 vsource size = 1
-	X11 a0 b0 k0 s0 k1 vsource Sum1 size = 1
-	X12 a1 b1 k1 s1 k2 vsource Sum1 size = 1
-	X13 a2 b2 k2 s2 k3 vsource Sum1 size = 1
-	X14 a3 b3 k3 s3 k4 vsource Sum1 size = 1
+	Xg11 a0 b0 k0 s0 k1 vsource Sum1 size = 1
+	Xg12 a1 b1 k1 s1 k2 vsource Sum1 size = 1
+	Xg13 a2 b2 k2 s2 k3 vsource Sum1 size = 1
+	Xg14 a3 b3 k3 s3 k4 vsource Sum1 size = 1
 .ENDS
 
 *********************************************************************
@@ -131,13 +123,9 @@
 *	carry out: k12
 
 .SUBCKT Sum12 a11 a10 a09 a08 a07 a06 a05 a04 a03 a02 a01 a00 b11 b10 b09 b08 b07 b06 b05 b04 b03 b02 b01 b00 k00 k12 s11 s10 s09 s08 s07 s06 s05 s04 s03 s02 s01 s00 vsource size = 1
-	X15 a03 a02 a01 a00 b03 b02 b01 b00 k00 k04 s03 s02 s01 s00 vsource Sum4 size = 1
-	X16 a07 a06 a05 a04 b07 b06 b05 b04 k04 k08 s07 s06 s05 s04 vsource Sum4 size = 1
-	X17 a11 a10 a09 a08 b11 b10 b09 b08 k08 k12 s11 s10 s09 s08 vsource Sum4 size = 1
+	Xh15 a03 a02 a01 a00 b03 b02 b01 b00 k00 k04 s03 s02 s01 s00 vsource Sum4 size = 1
+	Xh16 a07 a06 a05 a04 b07 b06 b05 b04 k04 k08 s07 s06 s05 s04 vsource Sum4 size = 1
+	Xh17 a11 a10 a09 a08 b11 b10 b09 b08 k08 k12 s11 s10 s09 s08 vsource Sum4 size = 1
 .ENDS
 
 *********************************************************************
-*************************************************************************************************************
-*************************************************************************************************************
-*************************************************************************************************************
-*************************************************************************************************************

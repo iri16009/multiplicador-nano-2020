@@ -9,9 +9,9 @@
 *********************************************** NEGATIVE LEVEL SENSITIVE D latch ***************************************************************
 ************************************************************************************************************************************************
 .SUBCKT pDLATCH D CLK Qn2 vsource size=1
-	X1 CLK CLKn vsource NotGate size = 1
-	X2 Q2 Qn2 vsource NotGate size = 1
-	X3 Qn2 Qnn2 vsource NotGate size = 1
+	Xa1 CLK CLKn vsource NotGate size = 1
+	Xa2 Q2 Qn2 vsource NotGate size = 1
+	Xa3 Qn2 Qnn2 vsource NotGate size = 1
 
 	M1 Q2 CLK D 0 NMOS W='size*UNIT_W' L=UNIT_L
 	M2 Q2 CLKn D vsource PMOS W='2*size*UNIT_W' L=UNIT_L
@@ -26,9 +26,9 @@
 
 .SUBCKT nDLATCH D CLK Qn1 vsource size=1
 
-	X1 CLK CLKn vsource NotGate size = 1
-	X2 Q1 Qn1 vsource NotGate size = 1
-	X3 Qn1 Qnn1 vsource NotGate size = 1
+	Xb1 CLK CLKn vsource NotGate size = 1
+	Xb2 Q1 Qn1 vsource NotGate size = 1
+	Xb3 Qn1 Qnn1 vsource NotGate size = 1
 
 	M1 Q1 CLKn D 0 NMOS W='size*UNIT_W' L=UNIT_L
 	M2 Q1 CLK D vsource PMOS W='2*size*UNIT_W' L=UNIT_L
@@ -45,8 +45,9 @@
 
 .SUBCKT DFF D CLK DFFout vsource size=1
 
-	X8 D CLK outNdlatch vsource nDLATCH size=1
-	X9 outNdlatch CLK DFFout vsource pDLATCH size=1
+	Xc8 D CLK outNdlatch vsource nDLATCH size=1
+	Xc9 outNdlatch CLK DFFout vsource pDLATCH size=1
+	Cracing2 outNdlatch 0 500f
 
 .ENDS
 
@@ -59,7 +60,7 @@
 
 .SUBCKT MUX D0 D1 S Y1 vsource size=1
 
-	X1 S Sneg vsource NotGate size = 1
+	Xd1 S Sneg vsource NotGate size = 1
 	M1 n1 D0 vsource vsource PMOS W='2*size*UNIT_W' L=UNIT_L
 	M2 n1 S Y vsource PMOS W='2*size*UNIT_W' L=UNIT_L
 	M3 Y Sneg n2 0 NMOS W='size*UNIT_W' L=UNIT_L
@@ -70,7 +71,8 @@
 	M7 Y S n4 0 NMOS W='size*UNIT_W' L=UNIT_L
 	M8 n4 D1 0 0 NMOS W='size*UNIT_W' L=UNIT_L
 
-	X2 Y Y1 vsource NotGate size = 1
+	Xd2 Y Y1 vsource NotGate size = 1
+	Cracing1 Y1 0 1f
 
 .ENDS
 
