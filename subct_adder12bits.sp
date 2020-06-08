@@ -2,17 +2,6 @@
 * PARA EL SUMADOR SE NECESITAN COMPUERTAS XOR, AND Y OR. DADO QUE SE TRABAJÓ CON
 * TECONOLOGÍA CMOS SE HICIERON LAS COMPUERTAS XOR, NAND Y NOR Y LUEGO SE LES
 * COLOCÓ UNA NOT EN LA SALIDA PARA OBTENER EL RESULTADO DESEADO.
-
-*******************************************************************************
-*COMPUERTA NOT:
-*ENTRADA: in1
-*SALIDA:  out1
-
-*.SUBCKT NotGate in1 out1 vsource size = 1
-*	M1 out1 in1 vsource vsource PMOS W='size*UNIT_W' L=UNIT_L
-*	M2 out1 in1 0 0 NMOS W='size*UNIT_W' L=UNIT_L
-*.ENDS
-
 *********************************************************************
 *COMPUERTA NAND2:
 *ENTRADA: in1, in2
