@@ -15,7 +15,7 @@
 
 ***************************** ADDER 12 BITS*************************************
 *    |    RESULTADO DEL SHIFT ENTRA A SUMADOR       |             MULTIPLICANDO         |  CARRY   |         RESULTADO DEL SUMADOR       |
-Xi5  Q23 Q22 Q21 Q20 Q19 Q18 Q17 Q16 Q15 Q14 Q13 Q12 0 0 0 0 0 Vdd Vdd Vdd Vdd 0 Vdd Vdd 0 carryout s11 s10 s9 s8 s7 s6 s5 s4 s3 s2 s1 s0 vdd sum12 size = 1
+Xi5  Q23 Q22 Q21 Q20 Q19 Q18 Q17 Q16 Q15 Q14 Q13 Q12 0 0 0 0 0 0 0 0 Vdd 0 Vdd 0         0 carryout s11 s10 s9 s8 s7 s6 s5 s4 s3 s2 s1 s0 vdd sum12 size = 1
 *************************************************************************************************************************************************
 
 
